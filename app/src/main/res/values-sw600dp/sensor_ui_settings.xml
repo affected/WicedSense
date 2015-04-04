@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="thermo_text_style" parent="@android:style/TextAppearance.Medium.Inverse"/>
+    
+    <!-- Gyro settings -->
+    <style name="gyro_text_style" parent="@android:style/TextAppearance.Medium.Inverse" />
+    <dimen name="gyro_text_margin_w">20dp</dimen>
+    <dimen name="gyro_text_margin_h">10dp</dimen>
+    
+    <!-- Accel settings -->
+    <style name="accel_text_style" parent="@android:style/TextAppearance.Medium.Inverse" />
+    <dimen name="accel_gauge_border">40dp</dimen>
+    <dimen name="accel_text_margin_w">20dp</dimen>
+    <dimen name="accel_text_margin_h">10dp</dimen>
+
+    <!-- Compass settings -->
+    <style name="compass_text_style" parent="@android:style/TextAppearance.Medium.Inverse" />
+    <dimen name="compass_gauge_border">40dp</dimen>
+    <dimen name="compass_text_margin_w">20dp</dimen>
+    <dimen name="compass_text_margin_h">10dp</dimen>
+
+</resources>

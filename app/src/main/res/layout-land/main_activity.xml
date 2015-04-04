@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+******************************************************************************
+ *
+ *  Copyright (C) 2013-2014 Broadcom Corporation
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ ******************************************************************************-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg"
+    android:columnCount="1"
+    tools:context=".FullscreenActivity" >
+
+    <View
+        android:id="@+id/main_separator"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/left_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/main_separator" >
+
+        <View
+            android:id="@+id/left_panel_center"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/left_panel_center"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_left_side_1" >
+
+            <fragment
+                android:id="@+id/fragment_gyro"
+                android:name="com.broadcom.app.wicedsense.GyroFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:tag="fragment_gyro"
+                tools:layout="@layout/gyro_fragment" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/left_panel_center"
+            android:layout_toLeftOf="@id/left_panel_center"
+            android:background="@drawable/bg_left_side_3" >
+
+            <fragment
+                android:id="@+id/fragment_compass"
+                android:name="com.broadcom.app.wicedsense.CompassFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="fragment_compass"
+                tools:layout="@layout/compass_fragment" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/left_panel_center"
+            android:layout_toRightOf="@id/left_panel_center"
+            android:background="@drawable/bg_left_side_3" >
+
+            <fragment
+                android:id="@+id/fragment_accelerometer"
+                android:name="com.broadcom.app.wicedsense.AccelerometerFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:tag="fragment_accelerometer"
+                tools:layout="@layout/accelerometer_fragment" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/broadcom_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:baselineAlignBottom="true"
+        android:scaleType="fitEnd"
+        android:src="@drawable/broadcom_logo_2" />
+
+    <LinearLayout
+        android:id="@+id/bar_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="80dp"
+        android:layout_toRightOf="@id/main_separator"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+
+        <FrameLayout
+            android:id="@+id/fragment_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        </FrameLayout>
+            
+        <fragment
+            android:id="@+id/fragment_pres"
+            android:name="com.broadcom.app.wicedsense.PressureFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="fragment_pres"
+            tools:layout="@layout/pressure_fragment" />
+
+        <fragment
+            android:id="@+id/fragment_humd"
+            android:name="com.broadcom.app.wicedsense.HumidityFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="fragment_humd"
+            tools:layout="@layout/humidity_fragment" />
+    </LinearLayout>
+
+</RelativeLayout>

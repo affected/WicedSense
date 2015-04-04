@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <SwitchPreference
+        android:key="settings_animation"
+        android:title="@string/setting_title_animation" />
+
+    <ListPreference
+        android:entries="@array/temperature_scale_type_names"
+        android:entryValues="@array/temperature_scale_type_values"
+        android:key="settings_temperature_scale_type"
+        android:title="@string/setting_title_temperature_scale" />
+
+    <Preference
+        android:key="settings_version"
+        android:title="@string/setting_title_version" />
+    
+    <SwitchPreference
+        android:key="settings_gyro"
+        android:title="@string/setting_title_gyro" />
+    
+    <SwitchPreference
+        android:key="settings_ecompass"
+        android:title="@string/setting_title_ecompass" />
+
+    <SwitchPreference
+        android:key="settings_accelerometer"
+        android:title="@string/setting_title_accelerometer" />
+</PreferenceScreen>

@@ -1,0 +1,11 @@
+<resources>
+    <color name="game_status_failed">#943634</color>
+    <color name="game_status_finished">#355D2A</color>
+    <color name="game_status_date">#000</color>
+    <color name="game_counter_participant">#29AECC</color>
+    <color name="game_counter_finished">#E17900</color>
+    
+    <color name="temp_color">#CE0000</color>
+    <color name="pres_color">#003F99</color>
+    <color name="humd_color">#599900</color>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="thermo_range_top_margin">15dp</dimen>
+    <dimen name="thermo_range_bottom_margin">29dp</dimen>
+</resources>

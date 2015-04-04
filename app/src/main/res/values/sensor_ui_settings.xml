@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="thermo_text_style" parent="@android:style/TextAppearance.Small.Inverse"/>
+    <dimen name="thermo_range_top_margin">20dp</dimen>
+    <dimen name="thermo_range_bottom_margin">38dp</dimen>
+    <dimen name="thermo_level_width">8dp</dimen>
+    
+    <dimen name="thermo_gauge_height">200dp</dimen>
+    <dimen name="thermo_gauge_width">40dp</dimen>
+    
+    <!-- Gyro settings -->
+    <style name="gyro_text_style" parent="@android:style/TextAppearance.Small.Inverse" />
+    <dimen name="gyro_text_margin_w">10dp</dimen>
+    <dimen name="gyro_text_margin_h">2dp</dimen>
+
+    <!-- Accel settings -->
+    <style name="accel_text_style" parent="@android:style/TextAppearance.Small.Inverse" />
+    <dimen name="accel_text_margin_w">10dp</dimen>
+    <dimen name="accel_text_margin_h">2dp</dimen>
+    <dimen name="accel_gauge_border">20dp</dimen>
+    
+    <!-- Compass settings -->
+    <style name="compass_text_style" parent="@android:style/TextAppearance.Small.Inverse" />
+    <dimen name="compass_text_margin_w">10dp</dimen>
+    <dimen name="compass_text_margin_h">2dp</dimen>
+    <dimen name="compass_gauge_border">20dp</dimen>
+    
+</resources>

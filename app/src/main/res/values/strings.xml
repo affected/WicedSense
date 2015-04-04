@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main -->
+    <string name="app_name">WICED Sense</string>
+    <string name="title_devicepicker">Select the WICED Sense Kit</string>
+    <string name="title_activity_compass">WICED Sense</string>
+    <string name="temperature_label">TEMP</string>
+    <string name="temperature_value_f">%1$s\u00B0F</string>
+    <string name="temperature_value_c">%1$s\u00B0C</string>
+    <string name="pressure_label">PRES</string>
+    <string name="pressure_value">%1$s</string>
+    <string name="humidity_label">HUMD</string>
+    <string name="humidity_value">%1$s%%</string>
+    <string name="gyro_label">GYRO</string>
+    <string name="accelerometer_label">ACCEL</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="no_device">Device not selected</string>
+    <string name="error_unsupported_device">The selected device is not a WICED Sense Kit.</string>
+    <string name="use_animation">Use animation</string>
+    <string name="update_fw">Check for software updates</string>
+    <string name="get_fw_info">Get sensor info</string>
+
+    <!-- Menu strings -->
+    <string name="action_settings">Settings</string>
+    <!-- Compass -->
+    <string name="compass_raw_angle">%1$s\u00B0</string>
+    <string name="compass_bkg">Compass Background</string>
+    <string name="compass_arrow">Compass Arrow</string>
+
+    <!-- Raw values -->
+    <string name="raw_x">x:%1$s</string>
+    <string name="raw_y">y:%1$s</string>
+    <string name="raw_z">z:%1$s</string>
+    <string name="battery_status_default">--%</string>
+    <string name="battery_status">%1$s%%</string>
+
+    <!-- Settings -->
+    <string name="setting_title_version">Version</string>
+    <string name="setting_title_animation">Animation</string>
+    <string name="setting_title_temperature_scale">Temperature scale</string>
+    <string name="setting_title_gyro">Gyro</string>
+    <string name="setting_title_ecompass">eCompass</string>
+    <string name="setting_title_accelerometer">Accelerometer</string>
+   
+    <string-array name="temperature_scale_type_names">
+        <item>Fahrenheit</item>
+        <item>Celcius</item>
+    </string-array>
+    
+    <!--  Do not localize -->
+    <string-array name="temperature_scale_type_values">
+        <item>F</item>
+        <item>C</item>
+    </string-array>
+</resources>

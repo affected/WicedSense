@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ *
+ *  Copyright (C) 2013-2014 Broadcom Corporation
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+-->
+<!-- This resource file contains string resources for the OTA components -->
+<resources>
+
+    <!-- Product Specific Strings -->
+    <string name="ota_chooser_title">WICED Sense updates available. Select an update.</string>
+    <string name="ota_dialog_title_available">WICED Sense update available</string>
+    <string name="ota_dialog_title_mandatory">WICED Sense update required</string>
+
+    <string name="ota_dialog_title">WICED Sense update</string>
+    <string name="ota_confirm_msg">Update the WICED Sense  device with %1$s?</string>
+    <string name="ota_dialog_progress_title">WICED Sense update in progress&#8230;</string>
+    <string name="ota_dialog_progress_msg_connecting">Connecting to WICED Sense device&#8230;</string>
+    <string name="ota_app_info_title">WICED Sense device info</string>
+
+    <!-- Strings not dependent on product name -->
+    <string name="ota_lbl_ok">OK</string>
+    <string name="ota_lbl_cancel">Cancel</string>
+    <string name="ota_nofirmware_msg">No update software is available.</string>
+    <string name="ota_dialog_progress_msg_starting">Starting software update&#8230;</string>
+    <string name="ota_dialog_progress_msg_discovering">Finding OTA services&#8230;</string>
+    <string name="ota_dialog_progress_msg_enablenotify">Turning on OTA services&#8230;</string>
+    <string name="ota_dialog_progress_msg_preparing">Preparing for software upload&#8230;</string>
+    <string name="ota_dialog_progress_msg_send_fw_info">Uploading software info&#8230;</string>
+    <string name="ota_dialog_progress_msg_send_fw">Uploading software&#8230;</string>
+    <string name="ota_dialog_progress_msg_verify_fw">Verifying software&#8230;</string>
+    <string name="ota_dialog_completed">Software update complete!</string>
+    <string name="ota_app_id">Application id</string>
+    <string name="ota_major_version">Major version</string>
+    <string name="ota_minor_version">Minor version</string>
+    <string name="ota_error_fw_open_error">Unable to read software.</string>
+    <string name="ota_error_internal">An unexpected error occurred. (error# %1$s)</string>
+    <string name="ota_error_connect">Unable to connect to the device.</string>
+    <string name="ota_error_discover">Unable to find OTA services.</string>
+    <string name="ota_error_timeout">Timeout occurred while upgrading. (state# %1$s)</string>
+    <string name="ota_error_write_char">Unable to write to the OTA service.</string>
+    <string name="ota_error_write_fw_info">Unable to upload the software info.</string>
+    <string name="ota_error_write_fw">Unable to upload the software.</string>
+    <string name="ota_error_bad_fw_info">The software info is corrupted. (error# %1$s)</string>
+    <string name="ota_error_bad_fw">The software is corrupted. (error# %1$s)</string>
+    <string name="ota_error_fw_validate_error">The software is corrupted or has been tampered with. (error# %1$s)</string>
+    <string name="ota_aborted">Software update cancelled.</string>
+    <string name="ota_device_id">Device</string>
+    <string name="ota_select_device">(Select a device)</string>
+    <string name="ota_unknown_device_name">(Unknown device name)</string>
+    <string name="ota_unknown_value">--</string>
+
+</resources>
