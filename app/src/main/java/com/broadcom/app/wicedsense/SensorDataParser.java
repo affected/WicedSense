@@ -28,30 +28,12 @@ import com.broadcom.util.MathUtils;
 public class SensorDataParser {
     public static final String TAG = Settings.TAG_PREFIX + "SensorDataParser";
 
-    public static final int SENSOR_FLAG_ACCEL = (0x1 << 0);
-    public static final int SENSOR_FLAG_GYRO = (0x1 << 1);
     public static final int SENSOR_FLAG_HUMIDITY = (0x1 << 2);
-    public static final int SENSOR_FLAG_MAGNO = (0x1 << 3);
     public static final int SENSOR_FLAG_PRESSURE = (0x1 << 4);
     public static final int SENSOR_FLAG_TEMP = (0x1 << 5);
 
-    // not currently in use - but should be set so that the match what the
-    // sensor produces - currently wrong
-    public static final int SENSOR_ACCEL_MIN = -90;
-    public static final int SENSOR_ACCEL_MAX = 90;
-
-    // not currently in use - but should be set so that the match what the
-    // sensor produces - currently wrong
-    public static final int SENSOR_GYRO_MIN = -327;
-    public static final int SENSOR_GYRO_MAX = 327;
-
     public static final int SENSOR_HUMIDITY_MIN = 0;
     public static final int SENSOR_HUMIDITY_MAX = 100;
-
-    // not currently in use - but should be set so that the match what the
-    // sensor produces - currently wrong
-    public static final int SENSOR_MAGNO_MIN = -180;
-    public static final int SENSOR_MAGNO_MAX = 180;
 
     public static final int SENSOR_PRESSURE_MIN = 800;
     public static final int SENSOR_PRESSURE_MAX = 1200;
@@ -66,24 +48,8 @@ public class SensorDataParser {
     public static final int SENSOR_PRES_DATA_SIZE = 2;
     public static final int SENSOR_HUMD_DATA_SIZE = 2;
 
-    public static final int SENSOR_ACCEL_DATA_SIZE = 6;
-    public static final int SENSOR_MAGNO_DATA_SIZE = 6;
-    public static final int SENSOR_GYRO_DATA_SIZE = 6;
-
     private static int getTwoByteValue(byte[] bytes, int offset) {
         return (bytes[offset + 1] << 8) + (bytes[offset] & 0xFF);
-    }
-
-    public static boolean accelerometerHasChanged(int mask) {
-        return (SENSOR_FLAG_ACCEL & mask) > 0;
-    }
-
-    public static boolean gyroHasChanged(int mask) {
-        return (SENSOR_FLAG_GYRO & mask) > 0;
-    }
-
-    public static boolean magnetometerHasChanged(int mask) {
-        return (SENSOR_FLAG_MAGNO & mask) > 0;
     }
 
     public static boolean humidityHasChanged(int mask) {
@@ -112,31 +78,6 @@ public class SensorDataParser {
 
     public static float getTemperatureF(byte[] sensorData, int offset) {
         return getTemperatureC(sensorData, offset) * 9 / 5 + 32;
-    }
-
-    public static void getAccelorometerData(byte[] sensorData, int offset, int[] values) {
-        values[0] = getTwoByteValue(sensorData, offset);
-        values[1] = getTwoByteValue(sensorData, offset + 2);
-        values[2] = getTwoByteValue(sensorData, offset + 4);
-    }
-
-    public static void getMagnometerData(byte[] sensorData, int offset, int[] values) {
-        values[0] = getTwoByteValue(sensorData, offset);
-        values[1] = getTwoByteValue(sensorData, offset + 2);
-        values[2] = getTwoByteValue(sensorData, offset + 4);
-
-    }
-
-    public static float getCompassAngleDegrees(int[] magnometerValues) {
-        double x = magnometerValues[0];
-        double y = magnometerValues[1];
-        return (float) MathUtils.getDegrees(y, x);
-    }
-
-    public static void getGyroData(byte[] sensorData, int offset, int[] values) {
-        values[0] = getTwoByteValue(sensorData, offset) / 100;
-        values[1] = getTwoByteValue(sensorData, offset + 2) / 100;
-        values[2] = getTwoByteValue(sensorData, offset + 4) / 100;
     }
 
     public static float tempCtoF(float c) {

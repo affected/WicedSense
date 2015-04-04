@@ -88,15 +88,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/temp_c_top" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/temperature_value_c"
-            android:id="@+id/textView"
-            android:layout_marginBottom="19dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </RelativeLayout>

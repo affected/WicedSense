@@ -74,9 +74,6 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
 
     private static final String FRAGMENT_HUMD = "fragment_humd";
     private static final String FRAGMENT_PRES = "fragment_pres";
-    private static final String FRAGMENT_GYRO = "fragment_gyro";
-    private static final String FRAGMENT_COMPASS = "fragment_compass";
-    private static final String FRAGMENT_ACCELEROMETER = "fragment_accelerometer";
 
     private static int getBatteryStatusIcon(int batteryLevel) {
         if (batteryLevel <= 0) {
@@ -153,9 +150,6 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
 
     private HumidityFragment mHumidityFrag;
     private PressureFragment mPressureFrag;
-    private GyroFragment mGyroFrag;
-    private CompassFragment mCompassFrag;
-    private AccelerometerFragment mAccelerometerFrag;
     private ImageView mBatteryStatusIcon;
     private TextView mBatteryStatusText;
     private View mBatteryStatusView;
@@ -212,30 +206,8 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
         }
         updateConnectionStateWidgets();
         updateTemperatureScaleType();
-        updateGyroState();
-        updateAccelerometerState();
-        updateCompassState();
         Settings.addChangeListener(this);
         return true;
-    }
-
-    private void updateGyroState() {
-        if (mGyroFrag != null) {
-            mGyroFrag.setEnabled(Settings.gyroEnabled());
-        }
-    }
-
-    private void updateAccelerometerState() {
-        if (mAccelerometerFrag != null) {
-            mAccelerometerFrag.setEnabled(Settings.accelerometerEnabled());
-        }
-
-    }
-
-    private void updateCompassState() {
-        if (mCompassFrag != null) {
-            mCompassFrag.setEnabled(Settings.compassEnabled());
-        }
     }
 
     /**
@@ -374,8 +346,6 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
         FragmentManager fMgr = getFragmentManager();
         mHumidityFrag = (HumidityFragment) fMgr.findFragmentByTag(FRAGMENT_HUMD);
         mPressureFrag = (PressureFragment) fMgr.findFragmentByTag(FRAGMENT_PRES);
-        mGyroFrag = (GyroFragment) fMgr.findFragmentByTag(FRAGMENT_GYRO);
-        mCompassFrag = (CompassFragment) fMgr.findFragmentByTag(FRAGMENT_COMPASS);
         mButtonConnectDisconnect = (Button) findViewById(R.id.connection_state);
         if (mButtonConnectDisconnect != null) {
             mButtonConnectDisconnect.setOnClickListener(this);
@@ -384,7 +354,6 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
             // large screen sizes do not have button in the main layout. Instead
             // it's an action button in the menu button
         }
-        mAccelerometerFrag = (AccelerometerFragment) fMgr.findFragmentByTag(FRAGMENT_ACCELEROMETER);
 
         // Initialize dialogs
         initDevicePicker();
@@ -402,11 +371,6 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
 
         // Start ui handler
         mUiHandler = new Handler(new UiHandlerCallback());
-
-        // Register components for frequent animation
-        mAnimation.addAnimated(mAccelerometerFrag);
-        mAnimation.addAnimated(mCompassFrag);
-        mAnimation.addAnimated(mGyroFrag);
 
         // Refresh temp,humid,press gauges using a slower animation to conserve
         // UI resources
@@ -696,7 +660,6 @@ public class MainActivity extends Activity implements DevicePicker.Callback, and
                 mLastRefreshTimeMs = currentTimeMs;
             }
 
-            // packet type specifying accelerometer, gyro, magno
             offset = 1;
 
             if (updateView && mAnimation != null) {

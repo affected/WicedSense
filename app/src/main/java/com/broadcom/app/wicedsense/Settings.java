@@ -99,10 +99,6 @@ public class Settings {
     static final String SETTINGS_KEY_PREFIX = "settings_";
     static final String SETTINGS_KEY_ANIMATION = SETTINGS_KEY_PREFIX + "animation";
 
-    static final String SETTINGS_KEY_GYRO = SETTINGS_KEY_PREFIX + "gyro";
-    static final String SETTINGS_KEY_ECOMPASS = SETTINGS_KEY_PREFIX + "ecompass";
-    static final String SETTINGS_KEY_ACCELEROMETER = SETTINGS_KEY_PREFIX + "accelerometer";
-
     static final String SETTINGS_KEY_TEMPERATURE_SCALE_TYPE = SETTINGS_KEY_PREFIX
             + "temperature_scale_type";
     static final String SETTINGS_KEY_VERSION = SETTINGS_KEY_PREFIX + "version";
@@ -123,10 +119,6 @@ public class Settings {
     private static File sOtaDirectory;
     private static FilenameFilter sOtaFileFilter;
     private static final ArrayList<SettingChangeListener> mChangeListeners = new ArrayList<Settings.SettingChangeListener>();
-    private static boolean sGyro;
-    private static boolean sEcompass;
-    private static boolean sAccelerometer;
-
 
     private static OnSharedPreferenceChangeListener mPrefListener = new OnSharedPreferenceChangeListener() {
         @Override
@@ -140,15 +132,6 @@ public class Settings {
             } else if (SETTINGS_KEY_TEMPERATURE_SCALE_TYPE.equals(key)) {
                 sTemperatureScaleType = sharedPreferences.getString(
                         SETTINGS_KEY_TEMPERATURE_SCALE_TYPE, TEMPERATURE_SCALE_TYPE_F);
-            }else if (SETTINGS_KEY_GYRO.equals(key)){
-              	 sGyro = sharedPreferences.getBoolean(SETTINGS_KEY_GYRO, false);
-                 Log.d(TAG, "sGyro = " + sGyro);
-            }else if (SETTINGS_KEY_ECOMPASS.equals(key)){
-                 sEcompass = sharedPreferences.getBoolean(SETTINGS_KEY_ECOMPASS, false);
-                 Log.d(TAG, "sEcompass = " + sEcompass);
-            }else if (SETTINGS_KEY_ACCELEROMETER.equals(key)){
-            	 sAccelerometer = sharedPreferences.getBoolean(SETTINGS_KEY_ACCELEROMETER, false);
-            	 Log.d(TAG, "sAccelerometer = " + sAccelerometer);
            }
             else {
                 return;
@@ -178,9 +161,6 @@ public class Settings {
         editor.putBoolean(SETTINGS_KEY_ANIMATION, false);
         editor.putString(SETTINGS_KEY_TEMPERATURE_SCALE_TYPE, TEMPERATURE_SCALE_TYPE_F);
         editor.putBoolean(SETTINGS_KEY_PREFIX + "initialized", true);
-        editor.putBoolean(SETTINGS_KEY_GYRO, true);
-        editor.putBoolean(SETTINGS_KEY_ECOMPASS, true);
-        editor.putBoolean(SETTINGS_KEY_ACCELEROMETER, true);
         editor.commit();
     }
 
@@ -243,9 +223,6 @@ public class Settings {
         // values.
         checkAndInitializeSettings(sPrefs);
         sAnimate = sPrefs.getBoolean(SETTINGS_KEY_ANIMATION, false);
-        sGyro = sPrefs.getBoolean(SETTINGS_KEY_GYRO, false);
-        sEcompass = sPrefs.getBoolean(SETTINGS_KEY_ECOMPASS, false);
-        sAccelerometer = sPrefs.getBoolean(SETTINGS_KEY_ACCELEROMETER, false);
         sTemperatureScaleType = sPrefs.getString(SETTINGS_KEY_TEMPERATURE_SCALE_TYPE,
                 TEMPERATURE_SCALE_TYPE_F);
         initOtaResources(ctx);
@@ -284,17 +261,5 @@ public class Settings {
     static FilenameFilter getOtaFileFilter() {
         return sOtaFileFilter;
     }
-
-    static boolean gyroEnabled(){
-    	return sGyro;
-    }
-    static boolean compassEnabled(){
-    	return sEcompass;
-    }
-
-    static boolean accelerometerEnabled(){
-    	return sAccelerometer;
-    }
-
 
 }
